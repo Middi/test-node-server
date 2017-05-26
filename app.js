@@ -17,16 +17,40 @@ app.set('views', path.join(__dirname, 'views'));
 
 // Body Parser Middleware
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Set Static Path
 app.use(express.static(path.join(__dirname, 'public')));
 
+var users = [
+    {
+        id: 1,
+        first_name: 'john',
+        last_name: 'Doe',
+        email: 'johndoe@gmail.com'
+    },
+    {
+        id: 2,
+        first_name: 'Carl',
+        last_name: 'Borton',
+        email: 'carl@msn.com'
+    },
+    {
+        id: 3,
+        first_name: 'Alice',
+        last_name: 'Johnson',
+        email: 'Alice@witransfer.com'}
+];
+
 app.get('/', function (req, res) {
     res.render('index', {
         title: 'Customers',
-        name: 'Richard Middleton'
+        users: users,
     });
+});
+
+app.post('/users/add', function(req, res) {
+    console.log('FORM SUBMITTED');
 });
 
 app.listen(3000, function () {
