@@ -1,5 +1,12 @@
 <% include partials/header %>
 <h1>Add Customer</h1>
+<% if(errors != undefined){ %>
+<ul>
+ <% errors.forEach(function(error){ %>
+        <li><%= error.msg %></li>
+    <% }); %>
+    </ul>
+<% } %>
 <form method="POST" action="/users/add">
 
 <label>First Name</label><br>
@@ -18,8 +25,8 @@
 </form>
     <h1><%= title %></h1>
     <ul>
-    <% users.forEach(function(user) { %>
-        <li><%= user.first_name %> <%= user.last_name %></li>
+    <% users.forEach(function(users) { %>
+        <li><%= users.first_name %> <%= users.last_name %> - <a href="#" class="deleteUser" data-id="<%= users._id %>">Delete</a></li>
     <% }) %>
     </ul>
     <% include partials/footer %>
