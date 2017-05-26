@@ -7,5 +7,18 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Richard Middleton",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Middi/test-node-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Middi/test-node-server/issues"
+  },
+  "homepage": "https://github.com/Middi/test-node-server#readme"
 }
