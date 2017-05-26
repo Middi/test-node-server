@@ -42,9 +42,6 @@ app.use(expressValidator({
     }
 }));
 
-
-var users = [];
-
 app.get('/', function (req, res) {
 
     db.users.find(function (err, docs) {
