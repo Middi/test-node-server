@@ -90,7 +90,7 @@ app.post('/users/add', function (req, res) {
 });
 
 app.delete('/users/delete/:id', function(req, res){
-    db.users.remove({_id: ObjectId(req.params.id), function() {
+    db.users.remove({_id: ObjectId(req.params.id), function(err) {
         if(err) {
             console.log(err);
         }
