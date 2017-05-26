@@ -53,7 +53,6 @@ app.get('/', function (req, res) {
             users: docs,
         });
     });
-    console.log(db.users[1]);
 });
 
 app.post('/users/add', function (req, res) {
@@ -63,14 +62,16 @@ app.post('/users/add', function (req, res) {
     req.checkBody('email', 'E-mail is Required').notEmpty();
 
     var errors = req.validationErrors();
-
+ db.users.find(function (err, users) {
     if (errors) {
         res.render('index', {
          title: 'Customers',
          users: users,
          errors: errors
     });
+    
 }
+
 
     else {
         var newUser = {
@@ -85,6 +86,7 @@ app.post('/users/add', function (req, res) {
            res.redirect('/');
         });
     }
+    });
 });
 
 app.delete('/users/delete/:id', function(req, res){
