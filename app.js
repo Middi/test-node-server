@@ -11,6 +11,10 @@ const app = express();
 
 // app.use(logger);
 
+// Body Parser Middleware
+app.use(bodyParse.json());
+app.use(bodyParser.urlencoded({extended: false}));
+
 app.get('/', function (req, res) {
     res.send('Hello world');
 });
